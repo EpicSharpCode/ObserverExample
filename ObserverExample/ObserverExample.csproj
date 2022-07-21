@@ -47,6 +47,7 @@
     <Compile Include="News\NewsAgency.cs" />
     <Compile Include="News\NewsEventArgs.cs" />
     <Compile Include="News\NewsMessage.cs" />
+    <Compile Include="News\NewsMessageGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Subscribers\ISubscriber.cs" />

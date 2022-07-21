@@ -31,7 +31,7 @@ namespace ObserverExample.Subscribers
         }
         public void Display(INewsMessage newsMessage)
         {
-            Console.WriteLine($"[{name}] {newsMessage.OutputMessage()}");
+            Console.WriteLine($"[{name}] get message: {newsMessage.OutputMessage()}");
         }
     }
 }

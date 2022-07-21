@@ -23,7 +23,7 @@ namespace ObserverExample.News
 
         public void MakeNewNews()
         {
-            newsMessages.Add(new NewsMessage("Car Arrived",$"Car with number {random.Next(0,999999).ToString("D6")} was arrived"));
+            newsMessages.Add(NewsMessageGenerator.GenerateNewsMessage());
             NewsRecieve(newsMessages.Last());
         }
 
