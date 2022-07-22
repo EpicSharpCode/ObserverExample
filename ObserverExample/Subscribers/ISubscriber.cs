@@ -9,7 +9,8 @@ namespace ObserverExample.Subscribers
 {
     public interface ISubscriber
     {
-        void Update(object sender, NewsEventArgs e);
+        void RecieveNews(object sender, NewsEventArgs e);
         void Subscribe(NewsAgency newsAgency);
+        void Output(INewsMessage newsMessage);
     }
 }

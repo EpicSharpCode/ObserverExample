@@ -7,31 +7,35 @@ using System.Threading.Tasks;
 
 namespace ObserverExample.Subscribers
 {
-    internal class Subscriber : ISubscriber
+    public class Subscriber : ISubscriber
     {
-        public string name { get; private set; }
+        string subscriberID;
         List<INewsMessage> recievedMessages;
 
-        public Subscriber(string _name)
+        public Subscriber()
         {
             recievedMessages = new List<INewsMessage>();
-            name = _name;
+        }
+
+        private void GenerateSubscriberID()
+        {
+            Random random = new Random();
+            subscriberID = random.Next(0, 999999999).ToString("D9");
         }
 
         public void Subscribe(NewsAgency newsAgency)
         {
-            newsAgency.NewsRecieved += Update;
+            newsAgency.NewsRecieved += RecieveNews;
         }
 
-        public void Update(object sender, NewsEventArgs e)
+        public void RecieveNews(object sender, NewsEventArgs e)
         {
-            var message = e.newsMessage;
-            recievedMessages.Add(message);
-            Display(message);
+            recievedMessages.Add(e.newsMessage);
+            Output(e.newsMessage);
         }
-        public void Display(INewsMessage newsMessage)
+        public virtual void Output(INewsMessage newsMessage)
         {
-            Console.WriteLine($"[{name}] get message: {newsMessage.OutputMessage()}");
+            Console.WriteLine($"Subscriber {subscriberID} get message: {newsMessage.OutputMessage()}");
         }
     }
 }

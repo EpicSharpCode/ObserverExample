@@ -13,16 +13,20 @@ namespace ObserverExample
         static void Main(string[] args)
         {
             NewsAgency newsAgency = new NewsAgency();
-            Subscriber subscriber1 = new Subscriber("JohnBates");
+            var subscriber1 = new SubscriberPerson("JohnBates");
             subscriber1.Subscribe(newsAgency);
             newsAgency.MakeNewNews();
             OutputEmptyLine();
-            Subscriber subscriber2 = new Subscriber("SarahPage");
+            var subscriber2 = new SubscriberPerson("SarahPage");
             subscriber2.Subscribe(newsAgency);
             newsAgency.MakeNewNews();
             OutputEmptyLine();
-            Subscriber subscriber3 = new Subscriber("William87");
+            var subscriber3 = new SubscriberPerson("William87");
             subscriber3.Subscribe(newsAgency);
+            newsAgency.MakeNewNews();
+            OutputEmptyLine();
+            var subscriberOrg1 = new SubscriberOrganization("Langman Buro");
+            subscriberOrg1.Subscribe(newsAgency);
             newsAgency.MakeNewNews();
 
             Console.ReadKey();
