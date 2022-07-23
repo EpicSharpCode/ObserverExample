@@ -1,5 +1,7 @@
 Repository with an example of using the "Observer" pattern
 
+<b>Theme:</b> News Agency
+
 <b>Main idea:</b> 
  
 ► TRACKING CHANGES
